@@ -1,0 +1,28 @@
+#!/bin/bash
+
+
+prompt1=$(zenity --list --title="SimonSec 1.0" --column="SimonSec Menu" "DIAGNOSTICS" "NETWORKING" "APT" "WIRELESS HACKING" --width=300 --height=300)
+
+
+if [ "$prompt1" == "DIAGNOSTICS" ]
+then
+ cd ~/simonsec/commands/diag
+ bash diag.sh
+fi
+
+if [ "$prompt1" == "NETWORKING" ]
+then
+ cd ~/simonsec/commands/networking
+ bash net.sh
+fi
+
+if [ "$prompt1" == "APT" ]
+then
+ cd ~/simonsec/commands/apt
+ bash apt.sh
+fi
+if [ "$prompt1" == "WIRELESS HACKING" ]
+then
+ cd ~/simonsec/commands/wirelesshack
+ bash wirelesshack.sh
+fi
