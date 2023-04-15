@@ -1,4 +1,4 @@
-prompt1=$(zenity --list --title="Wireless Hacking" --column="Wireless Hacking" "See All Available Adapter" "Enable Monitor Mode" "Set Channel" "Airodump-ng" "Deauth Attack" --width=300 --height=300)
+prompt1=$(zenity --list --title="Wireless Hacking" --column="Wireless Hacking" "See All Available Adapter" "Enable Monitor Mode" "Set Channel" "Airodump-ng" "Deauth Attack" "Beacon Flooding" --width=300 --height=300)
 
 check_adapter() {
 iwconfig | zenity --text-info --title="Available Adapter List" --width=500 --height=300
@@ -69,4 +69,11 @@ if [ "$prompt1" == "Deauth Attack" ]
 then
  cd ~/simonsec/commands/wirelesshack/deauth
  bash deauth.sh
+fi
+
+if [ "$prompt1" == "Beacon Flooding" ]
+then
+ check_adapter
+ wlan=$(ip -o link show | awk -F': ' '{print $2}' | zenity --list --title="Network Interfaces" --column="Interface Name")
+ gnome-terminal -- sudo mdk3 $wlan b | zenity --info --title="MDK3" --text="Beacon Flooding Started" --width=300
 fi
