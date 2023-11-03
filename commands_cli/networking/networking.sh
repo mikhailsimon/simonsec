@@ -38,7 +38,7 @@ then
  read -p "IP/Domain : " ip_ssh
  read -p "Username : " user
  read -p "Password : " pass
- ssh-pass -p "$pass" $user@ip_ssh
+ sshpass -p "$pass" ssh $user@$ip_ssh
 fi
 
 if [ "$option" -eq 5 ]
