@@ -3,7 +3,8 @@ prompt1=$(zenity --list --title="APT" --column="APT" "Install" "Update" "Remove"
 if [ "$prompt1" == "Install" ]
 then
  packages=$(zenity --entry --title="Package Installer" --text="Enter package names separated by spaces:")
- echo "Installing packages..." | sudo apt install -y $packages 2>&1 | tee /dev/null | zenity --text-info --title="Package Installer" --width=500 --height=300 --timeout=10
+ ask_sudo=$(zenity --entry --title="Package Installer" --text="Enter sudo/root password:")
+ echo "Installing packages..." | echo $ask_sudo | sudo -S apt install -y $packages 2>&1 | tee /dev/null | zenity --text-info --title="Package Installer" --width=500 --height=300 --timeout=10
  zenity --info --title="Installation Completed" --text="All packages have been installed."
 fi
 
