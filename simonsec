@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-prompt1=$(zenity --list --title="SimonSec 1.0" --column="SimonSec Menu" "DIAGNOSTICS" "NETWORKING" "APT" "WIRELESS HACKING" --width=300 --height=300)
+prompt1=$(zenity --list --title="SimonSec 1.0" --column="SimonSec Menu" "DIAGNOSTICS" "NETWORKING" "APT MENU" "WIRELESS HACKING" --width=300 --height=300)
 
 
 if [ "$prompt1" == "DIAGNOSTICS" ]
