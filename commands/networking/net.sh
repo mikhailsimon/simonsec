@@ -1,4 +1,4 @@
-prompt1=$(zenity --list --title="Networking" --column="Networking" "Bypass Internet TTL" "Local IP Address" "Track IP Address" "SSH to Server" --height=300)
+prompt1=$(zenity --list --title="Networking" --column="Networking" "Bypass Internet TTL" "Local IP Address" "Track IP Address" "SSH to Server" "NMAP Search" --height=300)
 
 if [ "$prompt1" == "Bypass Internet TTL" ]
 then
@@ -11,6 +11,13 @@ if [ "$prompt1" == "Local IP Address" ]
 then
  ip_local_result=$(ifconfig)
  zenity --text-info --title="Local IP Address" --width=500 --height=500 --filename=/dev/stdin <<<"$ip_local_result"
+fi
+
+if [ "$prompt1" == "NMAP Search" ]
+then
+ address=$(zenity --entry --title="NMAP Search" --text="IP Address/Domain:")
+ ask_sudo=$(zenity --password --title="Sudo/Root Password" --text="Enter sudo/root password:")
+ echo "Searching targets info..."| echo $ask_sudo | sudo -S nmap -v -O $address 2>&1 | tee /dev/null | zenity --text-info --title="NMAP Search" --width=500 --height=300 
 fi
 
 if [ "$prompt1" == "Track IP Address" ]
