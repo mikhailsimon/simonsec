@@ -1,5 +1,5 @@
 # simonsec
 
-Pentesting tools with Zenity GUI
+Pentesting tools with CLI and Zenity GUI
 
 
