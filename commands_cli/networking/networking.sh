@@ -13,7 +13,32 @@ echo "3.Track IP Address"
 echo "4.SSH to Server"
 echo "5.NMAP Search"
 
+option_picker() {
 read -p "Choose option : " option
+
+if [ -z "$option" ]
+then
+ echo "Invalid,please insert input"
+ option_picker
+fi
+
+if [ "$option" -gt 5 ]
+then
+ echo "Please choose option in range"
+ option_picker
+fi
+
+if [ "$option" -eq 0 ]
+then
+ echo "Going to main page"
+ bash $HOME/simonsec/simonsec_cli.sh
+ exit
+fi
+}
+
+
+
+option_picker
 
 if [ "$option" -eq 1 ]
 then
