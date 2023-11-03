@@ -16,7 +16,7 @@ then
  bash net.sh
 fi
 
-if [ "$prompt1" == "APT" ]
+if [ "$prompt1" == "APT MENU" ]
 then
  cd ~/simonsec/commands/apt
  bash apt.sh
