@@ -17,7 +17,7 @@ then
      zenity --info --title="Error" --text="Please insert input"
      exit 1
   fi
- gnome-terminal -- sudo airodump-ng $wlan
+ qterminal -e sudo airodump-ng $wlan
 fi
 
 if [ "$prompt1" == "Normal + ESSID" ]
@@ -30,7 +30,7 @@ then
      zenity --info --title="Error" --text="Please insert input"
      exit 1
   fi
- gnome-terminal -- sudo airodump-ng --essid $essid $wlan
+ qterminal -e sudo airodump-ng --essid $essid $wlan
 fi
 
 if [ "$prompt1" == "Normal + BSSID" ]
@@ -43,5 +43,5 @@ then
      zenity --info --title="Error" --text="Please insert input"
      exit 1
   fi
- gnome-terminal -- sudo airodump-ng --bssid $bssid $wlan
+ qterminal -e sudo airodump-ng --bssid $bssid $wlan
 fi

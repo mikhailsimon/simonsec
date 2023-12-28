@@ -31,6 +31,6 @@ then
  ip=$(zenity --entry --title="SSH to Server" --text="IP Address or Domain:")
  username=$(zenity --entry --title="SSH to Server" --text="Username":)
  password=$(zenity --password --title="$username Password")
- gnome-terminal -- sshpass -p '$password' ssh $username@$ip
+ qterminal -e sshpass -p '$password' ssh $username@$ip
 fi
 

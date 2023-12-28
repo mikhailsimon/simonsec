@@ -23,7 +23,7 @@ then
      zenity --info --title="Error" --text="Please insert input"
      exit 1
   fi
- gnome-terminal -- sudo aireplay-ng -9 $wlan
+ qterminal -e sudo aireplay-ng -9 $wlan
 fi
 
 if [ "$prompt1" == "Deauth(ESSID)" ]
@@ -37,7 +37,7 @@ then
      exit 1
   fi
  channel=$(channel_sel)
- zenity --info --title="Deauth" --text="Deauthing..." | gnome-terminal -- sudo aireplay-ng --deauth 0 -e "$essid" "$wlan"
+ zenity --info --title="Deauth" --text="Deauthing..." | qterminal -e sudo aireplay-ng --deauth 0 -e "$essid" "$wlan"
 fi
 
 if [ "$prompt1" == "Deauth(ESSID+Client)" ]
@@ -52,7 +52,7 @@ then
      exit 1
   fi
  channel=$(channel_sel)
- zenity --info --title="Deauth" --text="Deauthing..." | gnome-terminal -- sudo aireplay-ng --deauth 0 -e "$essid" -c "$cbssid" "$wlan"
+ zenity --info --title="Deauth" --text="Deauthing..." | qterminal -e sudo aireplay-ng --deauth 0 -e "$essid" -c "$cbssid" "$wlan"
 fi
 
 if [ "$prompt1" == "Deauth(BSSID)" ]
@@ -66,7 +66,7 @@ then
      exit 1
   fi
  channel=$(channel_sel)
- zenity --info --title="Deauth" --text="Deauthing..." | gnome-terminal -- sudo aireplay-ng --deauth 0 -a "$bssid" "$wlan"
+ zenity --info --title="Deauth" --text="Deauthing..." | qterminal -e sudo aireplay-ng --deauth 0 -a "$bssid" "$wlan"
 fi
 
 if [ "$prompt1" == "Deauth(BSSID+Client)" ]
@@ -81,5 +81,5 @@ then
      exit 1
   fi
  channel=$(channel_sel)
- zenity --info --title="Deauth" --text="Deauthing..." | gnome-terminal -- sudo aireplay-ng --deauth 0 -a "$bssid" -c "$cbssid" "$wlan"
+ zenity --info --title="Deauth" --text="Deauthing..." | qterminal -e sudo aireplay-ng --deauth 0 -a "$bssid" -c "$cbssid" "$wlan"
 fi

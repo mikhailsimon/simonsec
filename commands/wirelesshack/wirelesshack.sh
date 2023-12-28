@@ -75,5 +75,5 @@ if [ "$prompt1" == "Beacon Flooding" ]
 then
  check_adapter
  wlan=$(ip -o link show | awk -F': ' '{print $2}' | zenity --list --title="Network Interfaces" --column="Interface Name")
- gnome-terminal -- sudo mdk3 $wlan b | zenity --info --title="MDK3" --text="Beacon Flooding Started" --width=300
+ qterminal -e sudo mdk3 $wlan b | zenity --info --title="MDK3" --text="Beacon Flooding Started" --width=300
 fi
